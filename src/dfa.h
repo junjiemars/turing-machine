@@ -15,23 +15,12 @@
 typedef const char* const state_t;
 typedef char alphabet_t;
 
-typedef state_t (*delta)(state_t state, alphabet_t symbol);
-
 typedef struct {
     state_t state;
-    char input;
-    delta delta;
+    char symbol;
+    int type; // 0:q0 1:final
 } transit_t;
 
-
-static state_t void_state = 0;
-static state_t empty_state = "";
-
-//BOOL delta_char(alphabet_t a);
-//BOOL delta_or(alphabet_t a, alphabet_t b);
-//BOOL delta_and(alphabet_t a, alphabet_t b);
-//BOOL delta_loop(alphabet_t a);
-//BOOL delta_void(alphabet_t a);
-//BOOL delta_empty(alphabet_t a);
+typedef transit_t (*delta)(transit_t* transit, alphabet_t symbol);
 
 #endif

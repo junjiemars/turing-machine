@@ -3,7 +3,7 @@ CFLAGS=-Wall -g -O3
 LIBS=
 ODIR=build
 SRCDIR=src
-APP=$(ODIR)/tm
+P=$(ODIR)/tm
 
 _DEPS=tm.h
 DEPS=$(patsubst %,$(SRCDIR)/%,$(_DEPS))
@@ -14,10 +14,10 @@ OBJ=$(patsubst %,$(ODIR)/%,$(_OBJ))
 $(ODIR)/%.o: $(SRCDIR)/%.c $(DEPS)
 	$(CC) -o $@ -c $< $(CFLAGS)
 
-$(APP): $(OBJ)
+$(P): $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
 
 .PHONY: clean
 
 clean:
-	rm -f $(ODIR)/*.o *~ $(APP)
+	rm -f $(ODIR)/*.o *~ $(P)
