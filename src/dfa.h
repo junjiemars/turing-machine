@@ -21,6 +21,6 @@ typedef struct {
     int type; // 0:q0 1:final
 } transit_t;
 
-typedef transit_t (*delta)(transit_t* transit, alphabet_t symbol);
+typedef transit_t* (*delta)(transit_t* transit, alphabet_t symbol);
 
 #endif
